@@ -21,11 +21,11 @@ if (isset($_POST['name'])) {
     $name = mysqli_real_escape_string($connection, htmlspecialchars($_POST['name']));
     $comment = mysqli_real_escape_string($connection, htmlspecialchars($_POST['comment']));
 
-
-$sqlinsert = "INSERT INTO 10163348_comments (name, comment) VALUES ('$name', '$comment')";
-if (mysqli_query($connection, $sqlinsert)) { //$connection on global, defineeritud functions.php
-    echo "Andmete sisestamine õnnestus!";
-} else {
+    $sqlinsert = "INSERT INTO 10163348_comments (name, comment) VALUES ('$name', '$comment')";
+    if (mysqli_query($connection, $sqlinsert)) { //$connection on global, defineeritud functions.php
+        echo "Andmete sisestamine õnnestus!";
+}
+else {
     echo "Error: " . $sqlinsert . "<br>" . mysqli_error($connection);
 }
 }
